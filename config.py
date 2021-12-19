@@ -2,9 +2,9 @@
 
 # Output parameters
 IMG_SAVE = "output"  # where to save the rendered images
-IMAGE_SIZE = (500, 500)  # resolution of the output images (width, height)
-RENDERS = 20  # number of images to render
-ASSEMBLE_FRAME = 0  # model configuration to assemble
+IMAGE_SIZE = (200, 200)  # resolution of the output images (width, height)
+RENDERS = 10  # number of images to render
+ASSEMBLE_FRAME = 1  # model configuration to assemble
 
 # Excel file
 FILENAME = "colors.csv"  # path to the excel file with the color combinations

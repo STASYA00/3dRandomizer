@@ -1,7 +1,7 @@
 import bpy
 import sys
 
-from attribute import AttributeGroupFactory, FaceAttributeGroup
+from attrgroup import AttributeGroupFactory, FaceAttributeGroup
 from config import CATEGORY_INDICATOR, SCRIPT_PATH
 
 sys.path.append(SCRIPT_PATH)

@@ -55,9 +55,9 @@ class Logger:
             #face
             if "face" in _attrgroup.name:
                 self.content[frame]["face"]["type"] = _attrgroup.current_state
-                self.content[frame]["face"]["position"] = _attrgroup.facemanager.current_position
-                if _attrgroup.current_state == 0:
-                    self.content[frame]["face"]["texture"] = _attrgroup.facemanager.current_texture
+                self.content[frame]["face"]["position"] = _attrgroup.current_position
+                self.content[frame]["face"]["texture"] = _attrgroup.current_texture
+                
             self.content[frame]["attributes"][_attrgroup.name] = [x.name for x in _attrgroup.active]
 
         #rarity

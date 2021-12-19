@@ -5,7 +5,7 @@ import sys
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 
-from attribute import AttributeFactory
+from attrfactory import AttributeFactory
 from blender_utils import deselect_all
 from colortree import ColorGenerator
 from config import MODEL_DIR, BLEND_DIR, MAIN_BODY, HEAD_SWITCH
