@@ -1,7 +1,9 @@
+import os
 import sys
 from time import time
 
-sys.path.append("C:/Users/STFED/_personal/gaetan")
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
 
 from config import RENDERS
 from pipeline import MainPipeline, InitializePipeline, AssemblePipeline
