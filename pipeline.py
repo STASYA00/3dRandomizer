@@ -120,5 +120,5 @@ class MainPipeline(Pipeline):
             #     character.save(filename="{}".format(i))
             
         log.save()
-        character.save(filename="test")  #(filename="%04d" % i)
+        #character.save(filename="test")  #(filename="%04d" % i)
 
