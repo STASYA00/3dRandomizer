@@ -1,8 +1,13 @@
 import bpy
-import numpy as np
+import sys
 
 from blender_utils import select
-from config import RIG
+from config import RIG, SCRIPT_PATH
+
+sys.path.append(SCRIPT_PATH)
+
+import numpy as np
+
 
 class PosePicker:
     """

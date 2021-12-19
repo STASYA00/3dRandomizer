@@ -1,9 +1,14 @@
-from blender_utils import deselect_all, normalize_prob, select
 import bpy
+import sys
+
+from blender_utils import deselect_all, normalize_prob, select
+from config import HEAD_SWITCH, D_PROB, MAIN_BODY, MAX_PROB, HEAD_MESH, FACE_COLLECTION, CATEGORY_INDICATOR, SCRIPT_PATH
+from face import FaceManager
+
+sys.path.append(SCRIPT_PATH)
+
 import numpy as np
 
-from config import HEAD_SWITCH, D_PROB, MAIN_BODY, MAX_PROB, HEAD_MESH, FACE_COLLECTION, CATEGORY_INDICATOR
-from face import FaceManager
 
 
 class Attribute:

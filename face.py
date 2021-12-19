@@ -1,10 +1,15 @@
 import bpy
-import numpy as np
 import os
+import sys
 
 from blender_utils import get_nodes_link
-from config import FACES, HEAD_MESH, HEAD_SWITCH
+from config import FACES, HEAD_MESH, HEAD_SWITCH, SCRIPT_PATH
 from naming import NamingProtocol
+
+sys.path.append(SCRIPT_PATH)
+
+import numpy as np
+
 
 class FaceManager:
     def __init__(self, obj) -> None:
@@ -116,13 +121,56 @@ class FaceManager:
 class Face:
     def __init__(self) -> None:
         self.category = 0  # 0 - 2D, 1 - 3D
+        self.current_texture = ""
+        self.current_position = 0
 
-    def make(self, content=None):
-        return self._make(content)
+    def activate(self, content=None, hide=True):
+        if hide:
+            self._deactivate(hide=hide)
+        else:
+            self._make(content)
+        self.current_position = self._position_head(content) - 1
 
     def _check_material(self):
         _nodes = [x.name for x in self.content.active_material.node_tree.nodes]
         return HEAD_SWITCH in _nodes and "Group" in _nodes
+
+    def _deactivate(self, hide=True):
+        return
+
+    def _get_position(self, content=None):
+        _value = np.round(np.random.random())
+        if content:
+            _value = content["face"]["position"]
+        self.current_position = int(_value)
+        return int(1 + _value)
+
+    def _get_prob(self):
+        return np.array([1 for x in range(len(self.options))]) / len(self.options)  # equal prob for now
+
+    def _make(self, content=None):
+        return
+
+    def _position_head(self, content=None):
+        return self._get_position(content)
+
+
+class Face2D(Face):
+    def __init__(self) -> None:
+        Face.__init__(self)
+        self.category = 0
+        self.attributes = []
+
+    def _deactivate(self, hide=True):
+        if self._check_material():
+            _node = self.content.active_material.node_tree.nodes[HEAD_SWITCH]
+            _node.inputs[0].default_value = hide
+
+    def _get(self):
+        _options = []
+        for img in [x for x in os.listdir(self.path) if x.endswith(".png")]:
+            _options.append(img)
+        return _options
 
     def _make(self, content=None):
         if self._check_material():
@@ -135,12 +183,14 @@ class Face:
                 self.current_texture = content["face"]["texture"]
             self._assign_image(node, self.current_texture)
 
-    def _position_head(self, value=1):
+    def _position_head(self, content=None):
+        value = self._get_position(content)
         if self._check_material():
             _node = self.content.active_material.node_tree.nodes["Group"]
             if value not in [1, 2]:
                 value = np.random.choice([1, 2], 1)[0]
             _node.inputs[1].default_value = value
+        return value
 
 
 class Face3D(Face):
@@ -149,11 +199,14 @@ class Face3D(Face):
         self.category = 1  # 0 - 2D, 1 - 3D'
         self.attributes = []
 
-    def _position_head(self, value=1):
+    def _position_head(self, content=None):
+        value = self._get_position(content)
         if value not in [1, 2]:
             value = np.random.choice([1, 2], 1)[0]
         for _face_attr in self.attributes:
             _face_attr.active_shape_key.value = value
+
+        return value
 
 
 

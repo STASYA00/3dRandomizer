@@ -1,4 +1,10 @@
 import bpy
+import sys
+
+from config import SCRIPT_PATH
+
+sys.path.append(SCRIPT_PATH)
+
 import numpy as np
 
 class MaterialFactory:

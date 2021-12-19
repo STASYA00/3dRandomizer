@@ -1,6 +1,10 @@
 import sys
+
 from blender_utils import normalize_prob
-sys.path.append("C:/Users/STFED/Anaconda3/envs/py39/lib/site-packages")
+from config import SCRIPT_PATH
+
+sys.path.append(SCRIPT_PATH)
+
 import numpy as np
 import pandas as pd
 

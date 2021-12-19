@@ -30,7 +30,7 @@ Clone the repo:
 
 ### Generating images
 
-Double click file ```run.exe``` to run the image generation with the default parameters.
+Double click file ```run.bat``` to run the image generation with the default parameters.
 
 ### Parameters
 
@@ -55,4 +55,4 @@ There are a few parameters that can be controlled manually. All of them can be m
 
 ### Generating an existing configuration
 
-Double click file ```run_assembly.exe``` to run the image generation with the default parameters.
+Double click file ```run_assemble.bat``` to run the image generation with the default parameters.

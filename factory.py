@@ -1,8 +1,13 @@
 import bpy
-import numpy as np
+import sys
 
 from attribute import AttributeGroupFactory, FaceAttributeGroup
-from config import CATEGORY_INDICATOR
+from config import CATEGORY_INDICATOR, SCRIPT_PATH
+
+sys.path.append(SCRIPT_PATH)
+
+import numpy as np
+
 
 
 class CharacterFactory:

@@ -1,9 +1,11 @@
 import sys
-sys.path.append("C:/Users/STFED/Anaconda3/envs/py39/lib/site-packages")
-import json
 
-from config import FILENAME, LOG
+from config import LOG, SCRIPT_PATH
 from prob_calculator import ProbCalculator
+
+sys.path.append(SCRIPT_PATH)
+
+import json
 
 class Logger:
     def __init__(self, value=None) -> None:

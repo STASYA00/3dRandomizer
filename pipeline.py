@@ -2,8 +2,6 @@ import bpy
 import os
 import sys
 
-
-
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 
@@ -15,6 +13,7 @@ from config import FRAMES, LOG
 from logger import Logger
 from renderer import Renderer
 from scenemanager import SceneManager
+
 
 class Pipeline:
     """

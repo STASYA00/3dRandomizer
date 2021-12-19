@@ -1,5 +1,4 @@
 import bpy
-import numpy as np
 
 from colortree import BackGroundColorPicker
 from config import BGR_NAME
