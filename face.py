@@ -139,9 +139,11 @@ class Face2D(Face):
         return _options
 
     def _make(self, content=None):
-            node_group = [x for x in self.head.active_material.node_tree.nodes if x.type == "GROUP"][0]
-            node = [x for x in node_group.node_tree.nodes if x.name.startswith("Image Texture")][0]
-            
+            node_group = [x for x in self.head.active_material.node_tree.nodes if x.type == "GROUP"]
+            if node_group:
+                node_group = node_group[0]
+                node = [x for x in node_group.node_tree.nodes if x.name.startswith("Image Texture")][0]
+                
             if content:
                 self._assemble(content)
             else:
