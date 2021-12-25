@@ -26,6 +26,10 @@ Clone the repo:
 
 ```git clone https://github.com/STASYA00/3dRandomizer```
 
+Set Environment path for Blender:
+
+Follow [this instruction](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html). In place of the New Path paste the path to your Blender folder (e.g. ```C:\Program Files\Blender Foundation\Blender 2.93```)
+
 ## How to use
 
 ### Generating images
