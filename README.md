@@ -6,7 +6,7 @@ Welcome to the PonPon 3D randomizer project!
 
 ## Requirements
 
-+ python 3.7 or above
++ python 3.7 or above; <=3.9.2
 + [Blender](https://www.blender.org/download/) 2.8 or above
 + numpy
 + pandas
